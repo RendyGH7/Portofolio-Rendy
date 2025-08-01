@@ -72,44 +72,42 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
           
-          {/* Enhanced Logo */}
+          {/* Enhanced Logo - DIPERKECIL */}
           <div className="flex-shrink-0 z-10">
             <button 
               onClick={() => navigateTo('#home')} 
-              className="group flex items-center space-x-3 cursor-pointer"
+              className="group flex items-center space-x-4 cursor-pointer focus:outline-none"
             >
-              {/* Logo with enhanced effects */}
+              {/* Logo dengan ukuran diperkecil */}
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-xl shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-all duration-300 group-hover:scale-110 transform">
-                  <span className="text-white font-bold text-lg filter drop-shadow-lg">R</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-all duration-300 group-hover:scale-110 transform">
+                  <span className="text-white font-bold text-sm filter drop-shadow-lg">R</span>
                 </div>
                 {/* Floating particles around logo */}
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-ping opacity-60"></div>
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse opacity-70"></div>
+                <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-ping opacity-60"></div>
+                <div className="absolute -bottom-0.5 -left-0.5 w-1 h-1 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse opacity-70"></div>
               </div>
               
               <div className="hidden sm:block">
-                <div className="space-y-1">
-                  <h1 className="text-lg font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-300 group-hover:to-cyan-300 transition-all duration-300">
-                    Rendy
-                  </h1>
+                <div className="space-y-0.5">
+                  <h2 className="text-base font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-300 group-hover:to-cyan-300 transition-all duration-300">
+                    Rendy Fernando 
+                  </h2>
                   <div className="flex items-center space-x-1">
-                    <div className="h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-1 group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300"></div>
-                    <span className="text-xs text-gray-400 font-medium">Portfolio</span>
                   </div>
                 </div>
               </div>
             </button>
           </div>
 
-          {/* Enhanced Desktop Navigation */}
+          {/* Enhanced Desktop Navigation - HILANGKAN OUTLINE */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
               {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => navigateTo(item.href)}
-                  className={`group relative px-3 py-2 transition-all duration-300 font-medium text-sm focus:outline-none bg-transparent ${
+                  className={`group relative px-3 py-2 transition-all duration-300 font-medium text-sm outline-none focus:outline-none bg-transparent ${
                   isActive(item.href)
                     ? 'bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400' 
                     : 'text-gray-300 hover:bg-gradient-to-r hover:from-purple-400 hover:via-pink-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent'
@@ -138,11 +136,11 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Enhanced CTA Button */}
+          {/* Enhanced CTA Button - HILANGKAN OUTLINE */}
           <div className="hidden md:block">
             <button 
               onClick={() => navigateTo('#contact')}
-              className="group relative px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 text-white font-semibold rounded-full hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transform overflow-hidden"
+              className="group relative px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 text-white font-semibold rounded-full hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transform overflow-hidden outline-none focus:outline-none"
             >
               <span className="relative z-10 flex items-center space-x-2">
                 <span>Hire Me</span>
@@ -157,11 +155,11 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Enhanced Mobile menu button */}
+          {/* Enhanced Mobile menu button - HILANGKAN OUTLINE */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative inline-flex items-center justify-center p-3 rounded-full text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 transform focus:outline-none"
+              className="relative inline-flex items-center justify-center p-3 rounded-full text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 transform outline-none focus:outline-none"
             >
               <div className="space-y-1.5 relative z-10">
                 <div className={`w-5 h-0.5 bg-current transition-all duration-300 ${
@@ -197,13 +195,13 @@ const Navbar = () => {
             </div>
           </div>
           
-          {/* Mobile nav items */}
+          {/* Mobile nav items - HILANGKAN OUTLINE */}
           <div className="px-2 py-3 space-y-1">
             {navItems.map((item, index) => (
               <button
                 key={item.name}
                 onClick={() => navigateTo(item.href)}
-                className={`group flex items-center space-x-4 px-4 py-3 transition-all duration-300 w-full text-left relative focus:outline-none ${
+                className={`group flex items-center space-x-4 px-4 py-3 transition-all duration-300 w-full text-left relative outline-none focus:outline-none ${
                   isActive(item.href)
                     ? 'bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent'
                     : 'text-gray-300 hover:bg-gradient-to-r hover:from-purple-400 hover:via-pink-400 hover:to-cyan-400 hover:bg-clip-text hover:text-transparent'
@@ -231,11 +229,11 @@ const Navbar = () => {
             ))}
           </div>
           
-          {/* Mobile CTA */}
+          {/* Mobile CTA - HILANGKAN OUTLINE */}
           <div className="px-4 pb-4 pt-2">
             <button 
               onClick={() => navigateTo('#contact')}
-              className="group w-full px-4 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-xl shadow-purple-500/30 relative overflow-hidden"
+              className="group w-full px-4 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-xl shadow-purple-500/30 relative overflow-hidden outline-none focus:outline-none"
             >
               <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>🚀</span>
