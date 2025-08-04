@@ -38,7 +38,7 @@ const projects = [
       id: 1,
       title: 'ZonaHP E-commerce',
       category: 'web',
-      image: web1, // Menggunakan gambar asli
+      image: web1, //
       description: 'Modern e-commerce platform dengan real-time inventory dan payment gateway terintegrasi. Fitur lengkap untuk smart lifestyle accessories.',
       technologies: ['React', 'PHP', 'MySQL', 'Tailwind CSS'],
       status: 'Completed',
@@ -51,7 +51,7 @@ const projects = [
       id: 2,
       title: 'Smart Waste Management',
       category: 'uiux',
-      image: figma1, // Menggunakan gambar asli
+      image: figma1, // 
       description: 'Aplikasi manajemen sampah pintar dengan sistem tracking, reward, dan fitur edukasi lingkungan untuk mendorong daur ulang.',
       technologies: ['Figma', 'Adobe XD', 'Principle'],
       status: 'Completed',
@@ -62,7 +62,7 @@ const projects = [
       id: 3,
       title: 'HealthyCare Apps',
       category: 'uiux',
-      image: figma4, // Menggunakan gambar asli
+      image: figma4, // 
       description: 'Clean dan modern mobile banking app design dengan user-friendly interface, advanced security, dan fitur finansial lengkap.',
       technologies: ['Figma', 'Framer', 'After Effects'],
       status: 'Completed',
@@ -73,7 +73,7 @@ const projects = [
       id: 4,
       title: 'Relieve',
       category: 'uiux',
-      image: figma3, // Menggunakan gambar asli
+      image: figma3, // 
       description: 'Aplikasi food delivery dengan fitur real-time tracking, multiple payment options, rating system, dan UI yang appetizing.',
       technologies: ['Figma', 'Principle', 'Lottie'],
       status: 'Completed',

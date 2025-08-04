@@ -1,6 +1,8 @@
 import Navbar from '../../components/navbar/navbar'
 import { useState, useEffect } from 'react'
 
+const portorendy1 = '/portorendy1.jpg'
+
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [sectionsVisible, setSectionsVisible] = useState({
@@ -221,7 +223,7 @@ const About = () => {
                       <div className="w-full h-full bg-gray-900 rounded-xl overflow-hidden">
                         {/* Your Photo */}
                         <img 
-                          src="../public/portorendy1.jpg" 
+                          src="portorendy1.jpg" 
                           alt="Developer Portrait" 
                           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                         />

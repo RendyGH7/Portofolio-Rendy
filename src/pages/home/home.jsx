@@ -6,6 +6,8 @@ import Experience from '../experience/experience'
 import Contact from '../contact/contact'
 import { useState, useEffect } from 'react'
 
+const portorendy = '/portorendy.jpg' 
+
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [textAnimation, setTextAnimation] = useState(false)
@@ -193,7 +195,7 @@ const Home = () => {
                   {/* Profile Photo */}
                   <div className="relative w-56 h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-2xl shadow-purple-500/20 z-10 hover:scale-105 transition-transform duration-500 border-4 border-gradient-to-br from-purple-600 via-pink-600 to-cyan-600">
                     <img 
-                      src="../public/portorendy.jpg" 
+                      src="portorendy.jpg" 
                       alt="Rendy Fernando Tambunan"
                       className="w-full h-full object-cover object-center"
                       onError={(e) => {
