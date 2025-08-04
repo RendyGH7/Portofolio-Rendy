@@ -127,8 +127,7 @@ const About = () => {
             sectionsVisible.hero ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-125 translate-y-8'
           }`}>
             <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-900/40 to-pink-900/40 backdrop-blur-sm border border-purple-500/20 rounded-full px-6 py-3 mb-8">
-              <span className="text-2xl">👨‍💻</span>
-              <span className="text-sm font-medium text-gray-200">About Me</span>
+              <span className="text-xl font-medium text-gray-200">About Me</span>
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -222,7 +221,7 @@ const About = () => {
                       <div className="w-full h-full bg-gray-900 rounded-xl overflow-hidden">
                         {/* Your Photo */}
                         <img 
-                          src="../public/porto rendy 1.jpg" 
+                          src="../public/portorendy1.jpg" 
                           alt="Developer Portrait" 
                           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                         />

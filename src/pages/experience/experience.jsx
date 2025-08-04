@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeTab, setActiveTab] = useState('experience')
   const [sectionsVisible, setSectionsVisible] = useState({
     hero: false,
     content: false
@@ -18,41 +17,40 @@ const Experience = () => {
   }, [])
 
   const certificates = [
-  {
-    title: 'Responsible AI Program',
-    issuer: 'AI Opportunity, supported by Google.org & ADB',
-    period: 'June 2025 - November 2026',
-    status: 'Completed (14 hours)',
-    description:
-      'Successfully completed 14 hours of the AI Upskilling Program focusing on responsible AI practices.',
-    achievements: ['Supported by Google.org & ADB', 'Held across Asia Pacific', 'Organized by RSA & AVPN'],
-    icon: '🤖',
-    color: 'from-cyan-400 to-blue-500'
-  },
-  {
-    title: 'Finalist - Tim Langit',
-    issuer: 'Kompetisi Nasional Kategori Pelajar',
-    period: '2024',
-    status: 'Finalist',
-    description:
-      'Became a finalist in a national-level competition under the team "Tim Langit".',
-    achievements: ['Kategori Pelajar', 'Top finalist recognition', 'Team-based innovation project'],
-    icon: '🏅',
-    color: 'from-purple-400 to-pink-500'
-  },
-  {
-    title: '',
-    issuer: 'Kompetisi Nasional Kategori Pelajar',
-    period: '2024',
-    status: 'Finalist',
-    description:
-      'Became a finalist in a national-level competition under the team "Tim Langit".',
-    achievements: ['Kategori Pelajar', 'Top finalist recognition', 'Team-based innovation project'],
-    icon: '🏅',
-    color: 'from-purple-400 to-pink-500'
-  }
-]
-
+    {
+      title: 'Responsible AI Program',
+      issuer: 'AI Opportunity, supported by Google.org & ADB',
+      period: 'June 2025 - November 2026',
+      status: 'Completed (14 hours)',
+      description:
+        'Successfully completed 14 hours of the AI Upskilling Program focusing on responsible AI practices.',
+      achievements: ['Supported by Google.org & ADB', 'Held across Asia Pacific', 'Organized by RSA & AVPN'],
+      icon: '🤖',
+      color: 'from-cyan-400 to-blue-500'
+    },
+    {
+      title: 'Finalist - Tim Langit',
+      issuer: 'Kompetisi Nasional Kategori Pelajar',
+      period: '2024',
+      status: 'Finalist',
+      description:
+        'Became a finalist in a national-level competition under the team "Tim Langit".',
+      achievements: ['Kategori Pelajar', 'Top finalist recognition', 'Team-based innovation project'],
+      icon: '🏅',
+      color: 'from-purple-400 to-pink-500'
+    },
+    {
+      title: 'Web Design Technologies',
+      issuer: 'Seleksi LKS Internal SIJA 2024',
+      period: 'March 2024',
+      status: 'Certified',
+      description:
+        'Successfully completed Web Design Technologies certification in the internal LKS (Lomba Kompetensi Siswa) selection at SMKN 26.',
+      achievements: ['Web Design Technologies specialization', 'Internal LKS selection participant', 'SMKN 26 SIJA program'],
+      icon: '🎨',
+      color: 'from-orange-400 to-red-500'
+    }
+  ]
 
   const backgroundStyle = {
     backgroundImage: [
@@ -65,7 +63,7 @@ const Experience = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-black relative overflow-hidden">
-      {/* Background Effects - Same as About */}
+      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-950/20 via-violet-950/15 to-slate-950/30"></div>
         <div className="absolute inset-0" style={backgroundStyle}></div>
@@ -87,8 +85,7 @@ const Experience = () => {
             sectionsVisible.hero ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-125 translate-y-8'
           }`}>
             <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-900/40 to-pink-900/40 backdrop-blur-sm border border-purple-500/20 rounded-full px-6 py-3 mb-8">
-              <span className="text-2xl">💼</span>
-              <span className="text-sm font-medium text-gray-200">My Experience</span>
+              <span className="text-xl font-medium text-gray-200">My Experience</span>
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -118,77 +115,55 @@ const Experience = () => {
         </div>
       </section>
 
-      {/* Tab Navigation */}
-      <section className="px-6 lg:px-12 mb-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className={`flex justify-center space-x-4 transition-all duration-1000 ease-out ${
-            sectionsVisible.content ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-110 translate-y-8'
-          }`}>
-            {[
-              { id: 'education', label: 'Certificates', icon: '📜' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 ${
-                  activeTab === tab.id
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25 scale-105'
-                    : 'bg-slate-800/30 text-gray-300 hover:bg-slate-800/50 border border-slate-700/50 hover:border-purple-500/30'
-                }`}
-              >
-                <span>{tab.icon}</span>
-                <span className="hidden sm:inline">{tab.label}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Content Sections */}
+      {/* Certificates Section - Always Visible */}
       <section className="px-6 lg:px-12 pb-20 relative z-10">
         <div className="max-w-7xl mx-auto">
-          {/* Education */}
-          {activeTab === 'education' && (
-            <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-center text-white mb-12">
-                Educational <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Background</span>
-              </h2>
-              <div className="grid lg:grid-cols-2 gap-8">
-                {certificates.map((cert, index) => (
-                  <div key={index} className={`bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/50 transition-all duration-500 hover:scale-105 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 ${
+          <div className={`transition-all duration-1000 ease-out ${
+            sectionsVisible.content ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-110 translate-y-8'
+          }`}>
+            <h2 className="text-3xl font-bold text-center text-white mb-12">
+              Certificates & <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Achievements</span>
+            </h2>
+            
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              {certificates.map((cert, index) => (
+                <div 
+                  key={index} 
+                  className={`bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/50 transition-all duration-500 hover:scale-105 hover:border-purple-500/30 hover:shadow-lg hover:shadow-purple-500/20 ${
                     sectionsVisible.content ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-110 translate-y-8'
-                  }`} style={{ transitionDelay: `${index * 300}ms` }}>
-                    <div className="text-center mb-6">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${edu.color} rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg`}>
-                        {edu.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
-                      <h4 className="text-lg text-purple-400 font-semibold mb-2">{cert.issuer}</h4>
-                      <div className="flex justify-center space-x-4 text-sm text-gray-400">
-                        <span>{cert.period}</span>
-                        <span>•</span>
-                        <span>{cert.status}</span>
-                      </div>
+                  }`} 
+                  style={{ transitionDelay: `${index * 200}ms` }}
+                >
+                  <div className="text-center mb-6">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${cert.color} rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg`}>
+                      {cert.icon}
                     </div>
-                    
-                    <p className="text-gray-300 mb-6 text-center leading-relaxed">{edu.description}</p>
-                    
-                    <div>
-                      <h5 className="text-purple-400 font-semibold mb-3 text-center">Achievements:</h5>
-                      <ul className="space-y-2">
-                        {edu.achievements.map((achievement, i) => (
-                          <li key={i} className="text-gray-300 flex items-start">
-                            <span className="text-yellow-400 mr-2 mt-1">🏆</span>
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
+                    <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
+                    <h4 className="text-lg text-purple-400 font-semibold mb-2">{cert.issuer}</h4>
+                    <div className="flex justify-center space-x-4 text-sm text-gray-400">
+                      <span>{cert.period}</span>
+                      <span>•</span>
+                      <span className="text-green-400 font-medium">{cert.status}</span>
                     </div>
                   </div>
-                ))}
-              </div>
+                  
+                  <p className="text-gray-300 mb-6 text-center leading-relaxed">{cert.description}</p>
+                  
+                  <div>
+                    <h5 className="text-purple-400 font-semibold mb-3 text-center">Key Highlights:</h5>
+                    <ul className="space-y-2">
+                      {cert.achievements.map((achievement, i) => (
+                        <li key={i} className="text-gray-300 flex items-start">
+                          <span className="text-yellow-400 mr-2 mt-1 flex-shrink-0">🏆</span>
+                          <span className="text-sm">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </section>
 

@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react'
 
+// Import gambar dengan try-catch atau langsung dari public folder
+const figma1 = '/figma1.png' // atau bisa juga '/assets/figma1.png'
+const figma3 = '/figma3.png'
+const figma4 = '/figma4.png' 
+const web1 = '/web1.png'
+
 const Project = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [activeFilter, setActiveFilter] = useState('all')
@@ -32,7 +38,7 @@ const projects = [
       id: 1,
       title: 'ZonaHP E-commerce',
       category: 'web',
-      image: '/web 1.png',
+      image: web1, // Menggunakan gambar asli
       description: 'Modern e-commerce platform dengan real-time inventory dan payment gateway terintegrasi. Fitur lengkap untuk smart lifestyle accessories.',
       technologies: ['React', 'PHP', 'MySQL', 'Tailwind CSS'],
       status: 'Completed',
@@ -45,7 +51,7 @@ const projects = [
       id: 2,
       title: 'Smart Waste Management',
       category: 'uiux',
-      image: '/figma 1.png',
+      image: figma1, // Menggunakan gambar asli
       description: 'Aplikasi manajemen sampah pintar dengan sistem tracking, reward, dan fitur edukasi lingkungan untuk mendorong daur ulang.',
       technologies: ['Figma', 'Adobe XD', 'Principle'],
       status: 'Completed',
@@ -56,7 +62,7 @@ const projects = [
       id: 3,
       title: 'HealthyCare Apps',
       category: 'uiux',
-      image: '/figma 2.png',
+      image: figma4, // Menggunakan gambar asli
       description: 'Clean dan modern mobile banking app design dengan user-friendly interface, advanced security, dan fitur finansial lengkap.',
       technologies: ['Figma', 'Framer', 'After Effects'],
       status: 'Completed',
@@ -67,7 +73,7 @@ const projects = [
       id: 4,
       title: 'Relieve',
       category: 'uiux',
-      image: '/figma 3.png',
+      image: figma3, // Menggunakan gambar asli
       description: 'Aplikasi food delivery dengan fitur real-time tracking, multiple payment options, rating system, dan UI yang appetizing.',
       technologies: ['Figma', 'Principle', 'Lottie'],
       status: 'Completed',
@@ -104,9 +110,57 @@ const projects = [
 
   const featuredProject = projects.find(p => p.featured)
 
+  // Component untuk menampilkan gambar dengan fallback yang lebih baik
+  const ProjectImage = ({ project, className = "" }) => {
+    const [imageLoaded, setImageLoaded] = useState(false)
+    const [imageError, setImageError] = useState(false)
+    
+    const handleImageLoad = () => {
+      setImageLoaded(true)
+    }
+    
+    const handleImageError = () => {
+      setImageError(true)
+      console.error(`Failed to load image: ${project.image}`)
+    }
+
+    return (
+      <div className={`relative ${className}`}>
+        {/* Loading skeleton */}
+        {!imageLoaded && !imageError && (
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 animate-pulse flex items-center justify-center">
+            <div className="text-4xl">📱</div>
+          </div>
+        )}
+        
+        {/* Actual Image */}
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+          style={{ display: imageError ? 'none' : 'block' }}
+        />
+        
+        {/* Fallback hanya jika image error */}
+        {imageError && (
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30 flex flex-col items-center justify-center text-white">
+            <div className="text-6xl mb-2">
+              {project.category === 'web' ? '🌐' : '🎨'}
+            </div>
+            <p className="text-sm opacity-75">Image not found</p>
+          </div>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-black relative overflow-hidden">
-      {/* Enhanced Background Effects - Same as About */}
+      {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-950/20 via-violet-950/15 to-slate-950/30"></div>
         <div className="absolute inset-0" style={backgroundStyle}></div>
@@ -128,8 +182,7 @@ const projects = [
             sectionsVisible.hero ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-125 translate-y-8'
           }`}>
             <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-900/40 to-pink-900/40 backdrop-blur-sm border border-purple-500/20 rounded-full px-6 py-3 mb-8">
-              <span className="text-2xl">💼</span>
-              <span className="text-sm font-medium text-gray-200">Portfolio</span>
+              <span className="text-xl font-medium text-gray-200">Portfolio</span>
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -220,22 +273,32 @@ const projects = [
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                {/* Project Image/Icon */}
+                {/* Project Image */}
                 <div className="relative h-48 bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center overflow-hidden">
-                  <div className="text-6xl group-hover:scale-110 transition-transform duration-500">
-                    {project.image}
-                  </div>
+                  <ProjectImage project={project} className="w-full h-full object-cover" />
                   
                   {/* Overlay with quick actions */}
                   <div className={`absolute inset-0 bg-black/60 flex items-center justify-center space-x-4 transition-all duration-300 ${
                     hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
                   }`}>
-                    <button className="p-3 bg-purple-500 rounded-full text-white hover:bg-purple-600 transition-colors duration-300 hover:scale-110">
-                      🔗
-                    </button>
-                    <button className="p-3 bg-pink-500 rounded-full text-white hover:bg-pink-600 transition-colors duration-300 hover:scale-110">
-                      💻
-                    </button>
+                    {project.liveDemo && (
+                      <button 
+                        onClick={() => window.open(project.liveDemo, '_blank')}
+                        className="p-3 bg-purple-500 rounded-full text-white hover:bg-purple-600 transition-colors duration-300 hover:scale-110"
+                        title="Live Demo"
+                      >
+                        🔗
+                      </button>
+                    )}
+                    {project.figmaLink && (
+                      <button 
+                        onClick={() => window.open(project.figmaLink, '_blank')}
+                        className="p-3 bg-pink-500 rounded-full text-white hover:bg-pink-600 transition-colors duration-300 hover:scale-110"
+                        title="View Design"
+                      >
+                        🎨
+                      </button>
+                    )}
                   </div>
 
                   {/* Status Badge */}
@@ -286,8 +349,11 @@ const projects = [
                     <button className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300 rounded-lg hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 text-sm font-medium">
                       View Details
                     </button>
-                    <button className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 text-sm font-medium hover:scale-105">
-                      Live Demo
+                    <button 
+                      onClick={() => project.liveDemo ? window.open(project.liveDemo, '_blank') : window.open(project.figmaLink, '_blank')}
+                      className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 text-sm font-medium hover:scale-105"
+                    >
+                      {project.liveDemo ? 'Live Demo' : 'View Design'}
                     </button>
                   </div>
                 </div>
@@ -316,7 +382,7 @@ const projects = [
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Project Visual */}
                 <div className="relative h-64 lg:h-auto bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
-                  <div className="text-8xl">{featuredProject.image}</div>
+                  <ProjectImage project={featuredProject} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
                 
@@ -347,8 +413,11 @@ const projects = [
 
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-semibold hover:scale-105 shadow-lg shadow-purple-500/25">
-                      View Live Demo
+                    <button 
+                      onClick={() => featuredProject.liveDemo ? window.open(featuredProject.liveDemo, '_blank') : window.open(featuredProject.figmaLink, '_blank')}
+                      className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-semibold hover:scale-105 shadow-lg shadow-purple-500/25"
+                    >
+                      {featuredProject.liveDemo ? 'View Live Demo' : 'View Design'}
                     </button>
                     <button className="px-8 py-3 bg-slate-700/50 border border-purple-500/30 text-purple-300 rounded-lg hover:bg-slate-700/70 transition-all duration-300 font-semibold hover:scale-105">
                       View Source Code
