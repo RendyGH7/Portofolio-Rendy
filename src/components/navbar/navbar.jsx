@@ -63,11 +63,11 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'backdrop-blur-xl border-slate-200/10 shadow-lg shadow-slate-900/10' 
+        ? 'backdrop-blur-xl border-purple-500/10 shadow-lg shadow-purple-500/5' 
         : 'bg-transparent'
     }`}>
       {/* Subtle gradient border */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-600/10 via-slate-500/10 to-slate-600/10 opacity-0 transition-opacity duration-500 hover:opacity-100"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-pink-500/10 to-cyan-500/10 opacity-0 transition-opacity duration-500 hover:opacity-100"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex justify-between items-center h-16">
@@ -78,19 +78,19 @@ const Navbar = () => {
               onClick={() => navigateTo('#home')} 
               className="group flex items-center space-x-4 cursor-pointer focus:outline-none"
             >
-              {/* Logo dengan warna yang lebih kalem */}
+              {/* Logo dengan gradient yang lebih lembut */}
               <div className="relative">
-                <div className="w-8 h-8 bg-gradient-to-br from-slate-700 via-slate-600 to-slate-800 rounded-lg flex items-center justify-center shadow-lg shadow-slate-500/20 group-hover:shadow-slate-500/30 transition-all duration-300 group-hover:scale-105 transform">
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500/80 via-pink-500/80 to-cyan-500/80 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/30 transition-all duration-300 group-hover:scale-105 transform">
                   <span className="text-white font-bold text-sm filter drop-shadow-lg">R</span>
                 </div>
-                {/* Subtle floating particles */}
-                <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-slate-400 rounded-full animate-ping opacity-40"></div>
-                <div className="absolute -bottom-0.5 -left-0.5 w-1 h-1 bg-slate-500 rounded-full animate-pulse opacity-50"></div>
+                {/* Floating particles dengan warna yang lebih lembut */}
+                <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-cyan-400/60 rounded-full animate-ping opacity-50"></div>
+                <div className="absolute -bottom-0.5 -left-0.5 w-1 h-1 bg-pink-400/60 rounded-full animate-pulse opacity-60"></div>
               </div>
               
               <div className="hidden sm:block">
                 <div className="space-y-0.5">
-                  <h2 className="text-base font-bold bg-gradient-to-r from-slate-300 via-slate-200 to-slate-400 bg-clip-text text-transparent group-hover:from-slate-200 group-hover:via-slate-100 group-hover:to-slate-300 transition-all duration-300">
+                  <h2 className="text-base font-bold bg-gradient-to-r from-purple-300/90 via-pink-300/90 to-cyan-300/90 bg-clip-text text-transparent group-hover:from-purple-200/90 group-hover:via-pink-200/90 group-hover:to-cyan-200/90 transition-all duration-300">
                     Rendy Fernando 
                   </h2>
                 </div>
@@ -98,7 +98,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Professional Desktop Navigation - Text Only */}
+          {/* Professional Desktop Navigation - Text Only dengan warna gradient lembut */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
               {navItems.map((item, index) => (
@@ -107,15 +107,15 @@ const Navbar = () => {
                   onClick={() => navigateTo(item.href)}
                   className={`group relative cursor-pointer transition-all duration-300 font-medium text-sm ${
                   isActive(item.href)
-                    ? 'text-slate-200' 
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-gradient-to-r from-purple-300/80 via-pink-300/80 to-cyan-300/80 bg-clip-text text-transparent' 
+                    : 'text-gray-300 hover:bg-gradient-to-r hover:from-purple-300/70 hover:via-pink-300/70 hover:to-cyan-300/70 hover:bg-clip-text hover:text-transparent'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <span>{item.name}</span>
                   
-                  {/* Subtle bottom line indicator */}
-                  <div className={`absolute bottom-0 left-0 h-0.5 bg-slate-300 rounded-full transition-all duration-300 ${
+                  {/* Bottom line indicator dengan gradient yang lembut */}
+                  <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-400/70 via-pink-400/70 to-cyan-400/70 rounded-full transition-all duration-300 ${
                     isActive(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}></div>
                 </a>
@@ -123,18 +123,18 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Professional CTA Button */}
+          {/* Professional CTA Button dengan warna yang lebih lembut */}
           <div className="hidden md:block">
             <button 
               onClick={() => navigateTo('#contact')}
-              className="group relative px-6 py-2.5 bg-slate-800 text-slate-100 font-medium rounded-lg hover:bg-slate-700 transition-all duration-300 shadow-lg shadow-slate-900/20 hover:shadow-slate-900/30 hover:scale-105 transform border border-slate-600/50 hover:border-slate-500/70 outline-none focus:outline-none"
+              className="group relative px-6 py-2.5 bg-gradient-to-r from-purple-600/70 via-pink-600/70 to-cyan-600/70 text-white font-medium rounded-lg hover:from-purple-500/80 hover:via-pink-500/80 hover:to-cyan-500/80 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 hover:scale-105 transform outline-none focus:outline-none"
             >
               <span className="relative z-10 flex items-center space-x-2">
                 <span>Hire Me</span>
               </span>
               
               {/* Subtle shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-lg"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-lg"></div>
             </button>
           </div>
 
@@ -178,7 +178,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          {/* Mobile nav items - Text Style */}
+          {/* Mobile nav items - Text Style dengan warna gradient lembut */}
           <div className="px-2 py-3 space-y-1">
             {navItems.map((item, index) => (
               <a
@@ -186,8 +186,8 @@ const Navbar = () => {
                 onClick={() => navigateTo(item.href)}
                 className={`group flex items-center space-x-4 px-4 py-3 transition-all duration-300 w-full text-left relative cursor-pointer outline-none focus:outline-none rounded-lg ${
                   isActive(item.href)
-                    ? 'text-slate-100 bg-slate-800/50'
-                    : 'text-slate-300 hover:text-slate-100 hover:bg-slate-800/30'
+                    ? 'bg-gradient-to-r from-purple-300/60 via-pink-300/60 to-cyan-300/60 bg-clip-text text-transparent bg-slate-800/30'
+                    : 'text-gray-300 hover:bg-gradient-to-r hover:from-purple-300/50 hover:via-pink-300/50 hover:to-cyan-300/50 hover:bg-clip-text hover:text-transparent hover:bg-slate-800/20'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -197,7 +197,7 @@ const Navbar = () => {
                 <div className={`flex items-center space-x-2 ${
                   isActive(item.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                 } transition-opacity duration-300`}>
-                  <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-purple-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
@@ -205,25 +205,25 @@ const Navbar = () => {
             ))}
           </div>
           
-          {/* Mobile CTA - Professional Style */}
+          {/* Mobile CTA - dengan gradient yang lebih lembut */}
           <div className="px-4 pb-4 pt-2">
             <button 
               onClick={() => navigateTo('#contact')}
-              className="group w-full px-4 py-3 bg-slate-800 text-slate-100 font-medium rounded-lg hover:bg-slate-700 transition-all duration-300 shadow-lg shadow-slate-900/20 border border-slate-600/50 relative overflow-hidden outline-none focus:outline-none"
+              className="group w-full px-4 py-3 bg-gradient-to-r from-purple-600/70 via-pink-600/70 to-cyan-600/70 text-white font-medium rounded-lg hover:from-purple-500/80 hover:via-pink-500/80 hover:to-cyan-500/80 transition-all duration-300 shadow-lg shadow-purple-500/20 relative overflow-hidden outline-none focus:outline-none"
             >
               <span className="relative z-10 flex items-center justify-center space-x-2">
                 <span>Let's Work Together</span>
               </span>
               
               {/* Subtle shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Professional border effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-500/30 to-transparent"></div>
+      {/* Professional border effect dengan gradient lembut */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent"></div>
     </nav>
   )
 }
